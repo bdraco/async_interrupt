@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.1 (2023-07-20)
+
+### Fix
+
+* Add pytest-asyncio to dev deps to fix tests ([#3](https://github.com/bdraco/async_interrupt/issues/3)) ([`38d268a`](https://github.com/bdraco/async_interrupt/commit/38d268a18f8bc9a7751b11e661e103dda5b886ef))
+
 ## v1.1.0 (2023-07-20)
 
 ### Feature
