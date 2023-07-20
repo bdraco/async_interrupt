@@ -1,4 +1,5 @@
 import asyncio
+import sys
 
 import pytest
 
@@ -83,6 +84,10 @@ async def test_reuse_not_allowed():
             await asyncio.sleep(0)
 
 
+@pytest.mark.skipif(
+    sys.version_info < (3, 11),
+    reason="py3.11 is the first version to support uncancel()",
+)
 @pytest.mark.asyncio
 async def test_interrupt_with_current_task_canceled():
     loop = asyncio.get_running_loop()
