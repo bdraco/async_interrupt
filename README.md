@@ -27,7 +27,14 @@
   <img src="https://img.shields.io/pypi/l/async_interrupt.svg?style=flat-square" alt="License">
 </p>
 
-Context manager to raise an exception when a future is done
+Interrupt context manager for asyncio.
+
+This module provides a context manager that can be used to interrupt
+a block of code as soon as possible when a future is done.
+
+The purpose is to raise as soon as possible to avoid any race conditions.
+
+This is based loosely on async_timeout by Andrew Svetlov and cpython asyncio.timeout
 
 ## Installation
 
