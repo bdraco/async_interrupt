@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "async_interrupt"
-version = "1.0.2"
+version = "1.1.0"
 description = "Context manager to raise an exception when a future is done"
 authors = ["J. Nick Koston <nick@koston.org>"]
 license = "Apache Software License 2.0"
