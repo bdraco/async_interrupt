@@ -36,6 +36,14 @@ The purpose is to raise as soon as possible to avoid any race conditions.
 
 This is based loosely on async_timeout by Andrew Svetlov and cpython asyncio.timeout
 
+## Usage
+
+```python
+async with interrupt(future, ValueError, "message"):
+    future.set_result(None)
+    await asyncio.sleep(0)
+```
+
 ## Installation
 
 Install this via pip (or your favourite package manager):
