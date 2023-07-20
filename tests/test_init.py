@@ -81,3 +81,16 @@ async def test_reuse_not_allowed():
     with pytest.raises(RuntimeError):
         async with manual_interrupt:
             await asyncio.sleep(0)
+
+
+@pytest.mark.asyncio
+async def test_interrupt_with_current_task_canceled():
+    loop = asyncio.get_running_loop()
+    future = loop.create_future()
+
+    with pytest.raises(asyncio.CancelledError):
+        async with interrupt(future, ValueError, "message"):
+            if task := asyncio.current_task():
+                task.cancel("external cancel")
+            future.set_result(None)
+            await asyncio.sleep(1)
