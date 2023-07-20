@@ -1,7 +1,7 @@
 """Interrupt context manager for asyncio.
 
 This module provides a context manager that can be used to interrupt
-a block of code when a future is done.
+a block of code as soon as possible when a future is done.
 
 The purpose is to raise as soon as possible to avoid any race conditions.
 
