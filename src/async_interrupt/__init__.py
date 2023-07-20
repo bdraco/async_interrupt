@@ -54,7 +54,7 @@ class _Interrupt:
         self._interrupted = False
         self._exception = exception
         self._message = message
-        self._task: asyncio.Task | None
+        self._task: asyncio.Task[Any] | None
         self._cancelling: int = 0
         self._exited = False
 
