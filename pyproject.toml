@@ -3,7 +3,6 @@ name = "async_interrupt"
 version = "1.1.1"
 description = "Context manager to raise an exception when a future is done"
 authors = ["J. Nick Koston <nick@koston.org>"]
-license = "Apache Software License 2.0"
 readme = "README.md"
 repository = "https://github.com/bdraco/async_interrupt"
 classifiers = [
@@ -12,6 +11,7 @@ classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Libraries",
+    "License :: OSI Approved :: Apache Software License",
 ]
 packages = [
     { include = "async_interrupt", from = "src" },
