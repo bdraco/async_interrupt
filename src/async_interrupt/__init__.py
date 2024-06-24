@@ -7,6 +7,7 @@ The purpose is to raise as soon as possible to avoid any race conditions.
 
 This is based loosely on async_timeout by Andrew Svetlov and cpython asyncio.timeout
 """
+
 from __future__ import annotations
 
 import asyncio
