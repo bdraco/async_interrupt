@@ -74,7 +74,7 @@ async def test_reuse_not_allowed():
     loop = asyncio.get_running_loop()
     future = loop.create_future()
     loop.call_soon(future.set_result, None)
-    manual_interrupt = _Interrupt(loop, future, ValueError, "message")
+    manual_interrupt = _Interrupt(future, ValueError, "message")
 
     async with manual_interrupt:
         await asyncio.sleep(0)
