@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.2.0 (2024-08-21)
+
+### Feature
+
+* Improve performance of entering the context manager ([#13](https://github.com/bdraco/async_interrupt/issues/13)) ([`fab2218`](https://github.com/bdraco/async_interrupt/commit/fab2218d31383e42fa12e0cb6d76fd611d8ca997))
+* Python 3.13 support ([#14](https://github.com/bdraco/async_interrupt/issues/14)) ([`ec49fee`](https://github.com/bdraco/async_interrupt/commit/ec49fee2bd9233f77a0f5fd597ff06c2db528c92))
+
 ## v1.1.2 (2024-06-24)
 
 ### Fix
