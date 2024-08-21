@@ -35,7 +35,6 @@ class _Interrupt:
         "_exception",
         "_future",
         "_message",
-        "_loop",
         "_interrupted",
         "_task",
         "_cancelling",
@@ -44,13 +43,11 @@ class _Interrupt:
 
     def __init__(
         self,
-        loop: asyncio.AbstractEventLoop,
         future: asyncio.Future[Any],
         exception: type[Exception],
         message: str | None,
     ) -> None:
         """Initialize the interrupt context manager."""
-        self._loop = loop
         self._future = future
         self._interrupted = False
         self._exception = exception
@@ -108,24 +105,32 @@ class _Interrupt:
         self._future.remove_done_callback(self._on_interrupt)
 
 
-def interrupt(
-    future: asyncio.Future[Any],
-    exception: type[Exception],
-    message: str | None,
-) -> _Interrupt:
-    """Interrupt context manager.
+if TYPE_CHECKING:
 
-    Useful in cases when you want to apply interrupt logic around block
-    of code that uses await expression where an exception needs to be
-    raised as soon as possible to avoid race conditions.
+    def interrupt(
+        future: asyncio.Future[Any],
+        exception: type[Exception],
+        message: str | None,
+    ) -> _Interrupt:
+        """Interrupt context manager.
 
-    >>> async with interrupt(future, APIUnavailableError, 'API is became unavailable'):
-    ...     await api.call()
+        Useful in cases when you want to apply interrupt logic around block
+        of code that uses await expression where an exception needs to be
+        raised as soon as possible to avoid race conditions.
+
+        >>> async with interrupt(
+            future,
+            APIUnavailableError,
+            'API is became unavailable'
+        ):
+        ...     await api.call()
 
 
-    future - the future that will cause the block to be interrupted
-    exception - the exception to raise when the future is done
-    message - the message to pass when constructing the exception
-    """
-    loop = asyncio.get_running_loop()
-    return _Interrupt(loop, future, exception, message)
+        future - the future that will cause the block to be interrupted
+        exception - the exception to raise when the future is done
+        message - the message to pass when constructing the exception
+        """
+        return _Interrupt(future, exception, message)
+
+else:
+    interrupt = _Interrupt
