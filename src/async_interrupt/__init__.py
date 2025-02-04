@@ -14,7 +14,7 @@ import asyncio
 from types import TracebackType
 from typing import TYPE_CHECKING, Any, final
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 __all__ = ("interrupt",)
 

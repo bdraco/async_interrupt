@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.2.1 (2025-02-04)
+
+### Fix
+
+* Update poetry to v2 + add license to metadata ([#29](https://github.com/bdraco/async_interrupt/issues/29)) ([`fdf0003`](https://github.com/bdraco/async_interrupt/commit/fdf00039068ac2dec1d28efd8fad5b01a0a52c42))
+
 ## v1.2.0 (2024-08-21)
 
 ### Feature
