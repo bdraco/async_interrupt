@@ -1,30 +1,29 @@
-[tool.poetry]
+[project]
 name = "async_interrupt"
 version = "1.2.0"
+license = "Apache-2.0"
 description = "Context manager to raise an exception when a future is done"
-authors = ["J. Nick Koston <nick@koston.org>"]
+authors = [{ name = "J. Nick Koston", email = "nick@koston.org" }]
 readme = "README.md"
-repository = "https://github.com/bdraco/async_interrupt"
+requires-python = ">=3.9"
+dynamic = ["classifiers", "dependencies"]
+
+[project.urls]
+"Repository" = "https://github.com/bdraco/async_interrupt"
+"Bug Tracker" = "https://github.com/bdraco/async_interrupt/issues"
+"Changelog" = "https://github.com/bdraco/async_interrupt/blob/main/CHANGELOG.md"
+
+[tool.poetry]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Libraries",
-    "License :: OSI Approved :: Apache Software License",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13"
 ]
 packages = [
     { include = "async_interrupt", from = "src" },
 ]
-
-[tool.poetry.urls]
-"Bug Tracker" = "https://github.com/bdraco/async_interrupt/issues"
-"Changelog" = "https://github.com/bdraco/async_interrupt/blob/main/CHANGELOG.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -36,7 +35,7 @@ pytest-asyncio = ">=0.21.1,<0.26.0"
 
 [tool.semantic_release]
 branch = "main"
-version_toml = "pyproject.toml:tool.poetry.version"
+version_toml = "pyproject.toml:project.version"
 version_variable = "src/async_interrupt/__init__.py:__version__"
 build_command = "pip install poetry && poetry build"
 
@@ -79,5 +78,5 @@ module = "tests.*"
 allow_untyped_defs = true
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"
