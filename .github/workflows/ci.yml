@@ -16,8 +16,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.9"
       - uses: pre-commit/action@v3.0.1
@@ -28,10 +28,10 @@ jobs:
     name: Lint Commit Messages
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: wagoid/commitlint-github-action@v5.4.1
+      - uses: wagoid/commitlint-github-action@v6.2.1
 
   test:
     strategy:
@@ -47,13 +47,13 @@ jobs:
           - ubuntu-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
           allow-prereleases: true
-      - uses: snok/install-poetry@v1.3.3
+      - uses: snok/install-poetry@v1.4.1
       - name: Install Dependencies
         run: poetry install
         shell: bash
@@ -61,7 +61,7 @@ jobs:
         run: poetry run pytest --cov-report=xml
         shell: bash
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -74,18 +74,18 @@ jobs:
       - commitlint
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Release
-        uses: relekang/python-semantic-release@v7.34.6
+        uses: relekang/python-semantic-release@v9.17.0
         if: github.ref_name == 'main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pypi_token: ${{ secrets.PYPI_TOKEN }}
       - name: Test release
-        uses: relekang/python-semantic-release@v7.34.6
+        uses: relekang/python-semantic-release@v9.17.0
         if: github.ref_name != 'main'
         with:
           additional_options: --noop
