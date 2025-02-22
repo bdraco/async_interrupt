@@ -35,8 +35,8 @@ pytest-asyncio = ">=0.21.1,<0.26.0"
 
 [tool.semantic_release]
 branch = "main"
-version_toml = "pyproject.toml:project.version"
-version_variable = "src/async_interrupt/__init__.py:__version__"
+version_toml = ["pyproject.toml:project.version"]
+version_variables = ["src/async_interrupt/__init__.py:__version__"]
 build_command = "pip install poetry && poetry build"
 
 [tool.pytest.ini_options]
