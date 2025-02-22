@@ -1,11 +1,11 @@
 # async_interrupt
 
 <p align="center">
-  <a href="https://github.com/bdraco/async_interrupt/actions/workflows/ci.yml?query=branch%3Amain">
-    <img src="https://img.shields.io/github/actions/workflow/status/bdraco/async_interrupt/ci.yml?branch=main&label=CI&logo=github&style=flat-square" alt="CI Status" >
+  <a href="https://github.com/bluetooth-devices/async_interrupt/actions/workflows/ci.yml?query=branch%3Amain">
+    <img src="https://img.shields.io/github/actions/workflow/status/bluetooth-devices/async_interrupt/ci.yml?branch=main&label=CI&logo=github&style=flat-square" alt="CI Status" >
   </a>
-  <a href="https://codecov.io/gh/bdraco/async_interrupt">
-    <img src="https://img.shields.io/codecov/c/github/bdraco/async_interrupt.svg?logo=codecov&logoColor=fff&style=flat-square" alt="Test coverage percentage">
+  <a href="https://codecov.io/gh/bluetooth-devices/async_interrupt">
+    <img src="https://img.shields.io/codecov/c/github/bluetooth-devices/async_interrupt.svg?logo=codecov&logoColor=fff&style=flat-square" alt="Test coverage percentage">
   </a>
 </p>
 <p align="center">
