@@ -1,6 +1,6 @@
 [project]
 name = "async_interrupt"
-version = "1.2.1"
+version = "1.2.2"
 license = "Apache-2.0"
 description = "Context manager to raise an exception when a future is done"
 authors = [{ name = "J. Nick Koston", email = "nick@koston.org" }]
